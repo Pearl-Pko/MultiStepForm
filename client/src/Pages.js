@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {useState} from "react";
 import {useFormContext} from "./FormContext";
+import './page1.css'
 
 export function Page1() {
     const [formData, updateFormData] = useFormContext();

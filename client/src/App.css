@@ -1,0 +1,76 @@
+/* form {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+} */
+
+body {
+    /* background-image: url('../public/images/bg-sidebar-mobile.svg');
+    background-repeat: no-repeat;
+    background-position: top;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px; */
+}
+
+#root {
+    background-color: #EDF4FE;
+}
+
+.page {
+    width: 100%;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 400px;
+    background-image: url('../public/images/bg-sidebar-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+    gap: 15px;
+    margin: 0px auto;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul li a {
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    /* padding: 6px 10px; */
+    width: auto;
+}
+
+/* .page > * {
+    width: 85%;
+    margin: 0 auto;
+} */
+.page > * {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+form {
+    margin: 0 20px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+button {
+    all: unset;
+    margin-top: 80px;
+    padding: 6px 10px;
+    background-color: #072549;
+    color: white;
+    border-radius: 5px;
+    /* margin-left: auto; */
+}

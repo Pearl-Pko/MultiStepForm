@@ -15,11 +15,12 @@ root.render(
 		<BrowserRouter>
 			<Routes>
 				<Route exact path='/' element={<App/>}>
-					<Route path='1' element={<Page1/>}></Route>
-					<Route path='2' element={<Page2/>}></Route>
-					<Route path='3' element={<Page3/>}></Route>
-					<Route path='4' element={<Page4/>}></Route>
+					<Route exact path='1' element={<Page1/>}></Route>
+					<Route exact path='2' element={<Page2/>}></Route>
+					<Route exact path='3' element={<Page3/>}></Route>
+					<Route exact path='4' element={<Page4/>}></Route>
 				</Route>
+				<Route element={<div>Not Found</div>}/>
 			</Routes>
 		</BrowserRouter>
 	</FormProvider>
