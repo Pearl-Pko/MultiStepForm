@@ -1,0 +1,54 @@
+.page2 fieldset.plan {
+    border: none;
+}
+
+.page2 .plan input[type="radio"] {
+    display: none;
+}
+
+.page2 fieldset.plan label p:first-child {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+
+.page2 fieldset.plan label {
+    display: flex;
+    border: 2px solid lightgrey;
+    padding: 10px 15px;
+    border-radius: 10px;
+    gap: 12px;
+    align-items: start;
+}
+
+.page2 fieldset.plan input[type="radio"]:checked + label {
+    border: 2px solid lightpink;
+
+}
+
+.page2 fieldset.plan {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.page2 fieldset.duration {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+    background-color: rgb(213, 226, 243);
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.page2 fieldset.duration label {
+    font-size: 1.5em;
+}
+
+.page2 fieldset.duration .period {
+    font-size: 1em;
+}

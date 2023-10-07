@@ -1,0 +1,25 @@
+.confirm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.confirm h2 {
+    margin-top: 25px;
+}
+
+.confirm h2 + p {
+    margin-top: 15px;
+}
+
+.confirm p {
+    line-height: 1.5;
+}
+
+.confirm p:last-child {
+    max-width: 85%;
+}

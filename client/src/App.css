@@ -27,7 +27,7 @@ body {
     background-size: contain;
 }
 
-ul {
+.links {
     display: flex;
     justify-content: center;
     padding: 30px;
@@ -35,11 +35,11 @@ ul {
     margin: 0px auto;
 }
 
-ul li {
+.links li {
     list-style: none;
 }
 
-ul li a {
+.links li a {
     text-decoration: none;
     color: black;
     border: 2px solid black;
@@ -54,23 +54,39 @@ ul li a {
     margin: 0 auto;
 } */
 .page > * {
-    margin-left: 20px;
-    margin-right: 20px;
+    /* margin-left: 20px;
+    margin-right: 20px; */
 }
 
 form {
-    margin: 0 20px;
     background-color: white;
     padding: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
     border-radius: 20px;
 }
 
-button {
-    all: unset;
+.buttons {
     margin-top: 80px;
+    background-color: white;
+    padding: 10px 20px;
+    float: none;
+}
+
+.page button {
+    all: unset;
     padding: 6px 10px;
     background-color: #072549;
     color: white;
     border-radius: 5px;
     /* margin-left: auto; */
+    display: block;
+}
+
+.page .left-button {
+    float: left;
+}
+
+.page .right-button {
+    float: right;
 }

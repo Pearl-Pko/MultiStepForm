@@ -1,29 +1,48 @@
-
-
-form h2 {
+.page1 h2 {
     color: #072549;
     font-weight: bold;
 }
 
-label {
-    display: block;
+.page1 label {
+    /* display: block; */
     color: #072549;
 }
 
-form div {
+.page1 div {
     margin: 10px 0;
 }
 
-form input {
+.page1 input {
     width: 100%;
     padding: 5px 10px;
+    /* all: unset; */
+    display: block;
+    border: 1px solid black;
+    border-radius: 5px;
 }
 
-form > p {
+.page1 > p {
     color: rgb(127, 127, 127);
 }
 
-input::placeholder{
-    /* opacity: 0.2; */
+.page1 input::placeholder{
     color: rgb(127, 127, 127);
 }
+
+/* .page1 input:invalid {
+    border-color: red;
+} */
+
+.page1 .error {
+    border-color: red;
+}
+/* .error {
+    position: relative;
+}
+
+.error::after {
+    content: "This field is required";
+    position: absolute;
+    bottom: 100%;
+    left: 100%;
+} */
