@@ -14,10 +14,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid var(--sub-text-color);
     padding: 10px 15px;
     border-radius: 15px;
     /* gap: 10px; */
+}
+
+.page3 .addons > label:hover {
+    border: 1px solid var(--main-text-color);
+
+}
+
+.page3 .addons > label:has(input:checked) {
+    border: 1px solid var(--main-text-color);
+    background-color: var(--background-color);
 }
 
 .page3 .addons > label > div {

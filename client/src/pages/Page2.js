@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import {useOutletContext} from "react-router-dom";
-import {useFormContext} from "./FormContext";
-import arcade from "./public/images/icon-arcade.svg";
-import Switch from "./Components/Switch";
-import './page2.css'
-import ErrorMessage from "./ErrorMessage";
+import {useFormContext} from "../FormContext";
+import arcade from "../public/images/icon-arcade.svg";
+import Switch from "../Components/Switch";
+import './Page2.css'
+import ErrorMessage from "../ErrorMessage";
 
 export function Page2(props) {
     const [formData, updateFormData] = useFormContext();
@@ -24,8 +24,8 @@ export function Page2(props) {
 
     return (
         <div className="page2">
-            <h2>Select your plan</h2>
-            <p> You have the option of monthly or yearl billing</p>
+            <h2 className="main-text-color">Select your plan</h2>
+            <p className="sub-text-color"> You have the option of monthly or yearly billing</p>
 
             <fieldset className="plan">
                 {data.plans.map((plan) => {
@@ -45,9 +45,9 @@ export function Page2(props) {
                             <label htmlFor={plan["name"]}>
                                 <img src={arcade} />
                                 <div>
-                                    <p>{plan["name"]}</p>
+                                    <p className="main-text-color">{plan["name"]}</p>
                                     {duration ? (
-                                        <p>
+                                        <p className="sub-text-color">
                                             $
                                             {
                                                 plan["duration"]["yearly"]["price"]
@@ -55,7 +55,7 @@ export function Page2(props) {
                                             /yr
                                         </p>
                                     ) : (
-                                        <p>
+                                        <p className="sub-text-color">
                                             $
                                             {
                                                 plan["duration"]["monthly"]["price"]
@@ -64,7 +64,7 @@ export function Page2(props) {
                                         </p>
                                     )}
                                     {duration && (
-                                        <p>
+                                        <p style={{fontWeight: "500", fontSize: "0.9em"}} className="main-text-color">
                                             {
                                                 plan["duration"]["yearly"]["discount_months"]
                                             }{" "}
@@ -81,13 +81,15 @@ export function Page2(props) {
             </fieldset>
 
             <fieldset className="duration">
-                <label className="period">Monthly</label>
+                <label className={`period ${formData.duration === "monthly" ? "main-text-color" : "sub-text-color"}`}>Monthly</label>
                 <Switch
                     isOn={duration}
-                    onColor="#EF476F"
+                    baseColor="#002758"
+                    onColor="#002758"
+                    // cssColor={"var(--main-text-color)"}
                     handleToggle={() => updateDuration(!duration)}
                 />
-                <label className="period">Yearly</label>
+                <label className={`period ${formData.duration === "yearly" ? "main-text-color" : "sub-text-color"}`}>Yearly</label>
             </fieldset>
         </div>
     );

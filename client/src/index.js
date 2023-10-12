@@ -5,12 +5,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 // import { Page1, Page2, Page3, Page4 } from "./Pages";
-import { Page1 } from "./Page1";
-import { Page2 } from "./Page2";
-import { Page3 } from "./Page3";
-import { Page4 } from "./Page4";
+import { Page1 } from "./pages/Page1";
+import { Page2 } from "./pages/Page2";
+import { Page3 } from "./pages/Page3";
+import { Page4 } from "./pages/Page4";
 import { FormProvider } from "./FormContext";
-import ConfirmationPage from "./ConfirmationPage";
+import ConfirmationPage from "./pages/ConfirmationPage";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

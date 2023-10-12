@@ -16,5 +16,30 @@ code {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  line-height: 1;
+  line-height: 1.4;
+}
+
+:root {
+  --main-text-color: #002758;
+  --sub-text-color: #9B9CA0;
+  --hightlight-color: #BBE0FA;
+  --background-color: #EEF5FF;
+  --confirmation-color: #483EFF;
+  --error-color: #FF9BA6;
+}
+
+.main-text-color {
+  color: var(--main-text-color);
+}
+
+.sub-text-color {
+  color: var(--sub-text-color);
+}
+
+.background-color {
+  color: var(--background-color);
+}
+
+.confirmation-color {
+  color: var(--confirmation-color);
 }

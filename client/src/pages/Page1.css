@@ -1,32 +1,27 @@
-.page1 h2 {
-    color: #072549;
-    font-weight: bold;
-}
-
-.page1 label {
-    /* display: block; */
-    color: #072549;
-}
-
-.page1 div {
-    margin: 10px 0;
+.page1 > div {
+    margin-top: 15px;
+    /* margin: 20px 0; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .page1 input {
     width: 100%;
     padding: 5px 10px;
     /* all: unset; */
+    margin-top: 4px;
     display: block;
-    border: 1px solid black;
+    border: 1px solid var(--sub-text-color);
     border-radius: 5px;
 }
 
-.page1 > p {
-    color: rgb(127, 127, 127);
-}
+/* .page1 > p {
+    color: var(--sub-text-color);
+} */
 
 .page1 input::placeholder{
-    color: rgb(127, 127, 127);
+    color: var(--sub-text-color);
 }
 
 /* .page1 input:invalid {
@@ -34,7 +29,7 @@
 } */
 
 .page1 .error {
-    border-color: red;
+    border-color: var(--error-color);
 }
 /* .error {
     position: relative;

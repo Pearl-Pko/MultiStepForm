@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import {useOutletContext} from "react-router-dom";
-import {useFormContext} from "./FormContext";
-import {capitalizeFirstLetter, toLowerCaseFirstLetter} from "./utils";
-import Checkbox from "./Components/Checkbox";
-import './page3.css'
+import {useFormContext} from "../FormContext";
+import {capitalizeFirstLetter, toLowerCaseFirstLetter} from "../utils";
+import Checkbox from "../Components/Checkbox";
+import "./Page3.css";
 
 export function Page3() {
     const [formData, updateFormData] = useFormContext();
@@ -29,8 +29,8 @@ export function Page3() {
 
     return (
         <div className="page3">
-            <h1>Pick add-ons</h1>
-            <p>Add-ons help enhance your gaming experience</p>
+            <h2 className="main-text-color">Pick add-ons</h2>
+            <p className="sub-text-color">Add-ons help enhance your gaming experience</p>
 
             <fieldset className="addons">
                 {data.addons.map((addon, index) => {
@@ -46,14 +46,14 @@ export function Page3() {
                                     name="addons"
                                 />
                                 <div>
-                                    <p>{addon["name"]}</p>
-                                    <p>{addon["description"]}</p>
+                                    <p className="main-text-color">{addon["name"]}</p>
+                                    <p className="sub-text-color">{addon["description"]}</p>
                                 </div>
                             </div>
                             {formData.duration === "yearly" ? (
-                                <p>+${addon["discount"]["yearly"]}/yr</p>
+                                <p className="confirmation-color">+${addon["discount"]["yearly"]}/yr</p>
                             ) : (
-                                <p>+${addon["discount"]["monthly"]}/mo</p>
+                                <p className="confirmation-color">+${addon["discount"]["monthly"]}/mo</p>
                             )}
                         </label>
                     );

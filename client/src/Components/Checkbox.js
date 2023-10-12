@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 // import "./Checkbox.css";
-import './Checkbox2.css'
+import './Checkbox.css'
 
 
 const Checkbox = ({id, checked, handleToggle, ...props}) => {

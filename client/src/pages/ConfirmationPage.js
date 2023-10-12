@@ -1,5 +1,5 @@
 import React from 'react';
-import thankYouImage from './public/images/icon-thank-you.svg'
+import thankYouImage from '../public/images/icon-thank-you.svg'
 import './ConfirmationPage.css'
 
 function ConfirmationPage(props) {
