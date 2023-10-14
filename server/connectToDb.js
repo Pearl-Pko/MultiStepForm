@@ -11,7 +11,6 @@ async function connectToDb(callback) {
 
     try {
         await client.connect();
-        console.log("connected to db");
         dbConnection = client.db();
         return callback();
     } catch (e) {
