@@ -106,7 +106,7 @@ function App() {
             navigate(`/${currentPage + 1}`);
         } else {
             console.log(formData);
-            fetch("/submit", {
+            fetch("/api/submit", {
                 method: "POST",
                 body: JSON.stringify(formData),
                 headers: {
@@ -121,7 +121,7 @@ function App() {
     };
 
     useEffect(() => {
-        fetch("/plans")
+        fetch("/api/plans")
             .then((res) => res.json())
             .then((data) => {
                 setPlans(data);
@@ -130,7 +130,7 @@ function App() {
     }, []);
 
     useEffect(() => {
-        fetch("/addons")
+        fetch("/api/addons")
             .then((res) => res.json())
             .then((data) => {
                 // console.log(data);

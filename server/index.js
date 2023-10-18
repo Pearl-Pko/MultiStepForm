@@ -28,18 +28,18 @@ app.use(express.static("../client/build"));
 
 app.use(express.json());
 
-app.use(plans);
+app.use('/api', plans);
 
 // Other server configuration and routes...
-app.get("/api", (req, res) => {
-    return res.send({msg: "done"}).status(200);
-});
+// app.get("/api", (req, res) => {
+//     return res.send({msg: "done"}).status(200);
+// });
 
-app.post("/submit", (req, res) => {
-	console.log('submitted');
-	console.log(req.body);
-    return res.send({msg: "done"}).status(200);
-});
+// app.post("/submit", (req, res) => {
+// 	console.log('submitted');
+// 	console.log(req.body);
+//     return res.send({msg: "done"}).status(200);
+// });
 
 // const PORT = 5000;
 // app.listen(PORT, () => {
