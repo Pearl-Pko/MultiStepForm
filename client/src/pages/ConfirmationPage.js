@@ -1,11 +1,11 @@
 import React from "react";
-import thankYouImage from "../public/images/icon-thank-you.svg";
+// import thankYouImage from "../public/images/icon-thank-you.svg";
 import "./ConfirmationPage.css";
 
 function ConfirmationPage(props) {
     return (
         <div className="confirm">
-            <img src={thankYouImage} />
+            <img src="images/icon-thank-you.svg" />
             <h2>Thank you!</h2>
             <p>Thanks for confirming your subscription!</p>
             <p>

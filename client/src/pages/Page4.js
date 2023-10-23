@@ -14,7 +14,7 @@ export function Page4() {
 
         return (
         <div className="page4">
-            <h2>Finishing up</h2>
+            <h2 className="main-text-color">Finishing up</h2>
             <ErrorMessage message="For you to continue with the rest of this page, the other pages have to be correctly filled"/>
             {/* <p className="error">error</p> */}
         </div>);  

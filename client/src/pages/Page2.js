@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {useOutletContext} from "react-router-dom";
 import {useFormContext} from "../FormContext";
-import arcade from "../public/images/icon-arcade.svg";
+// import arcade from "../public/images/icon-arcade.svg";
 import Switch from "../Components/Switch";
 import './Page2.css'
 import ErrorMessage from "../ErrorMessage";
@@ -43,7 +43,7 @@ export function Page2(props) {
                                 required
                             />
                             <label htmlFor={plan["name"]}>
-                                <img src={arcade} />
+                                <img src={plan["image uri"] }/>
                                 <div>
                                     <p className="main-text-color">{plan["name"]}</p>
                                     {duration ? (

@@ -8,7 +8,6 @@ function App() {
     const currentPage = parseInt(useLocation().pathname[1]);
     const navigate = useNavigate();
     const [formData, updateFormData] = useFormContext();
-    const [links, setLinks] = useState(["#", "#", "#", "#"]);
     const [addons, setAddons] = useState([]);
     const [plans, setPlans] = useState([]);
     const [errorMessage, setErrorMessage] = useState({});
@@ -28,35 +27,15 @@ function App() {
         setValidPages(pages);
     };
 
-    const shouldLink = (link) => {
-        // we would allow links to previous pages
-        // if the user wants to link to the next page, then the current page has to be valid
-        if (link > currentPage) {
-            if (link === currentPage + 1 && pageIsValid()) {
-                setPageValidity();
-                console.log("rerender");
-                return `/${link}`;
-            }
-            return "#";
-        }
-        return `/${link}`;
-    };
-
-    const updateLink = (link) => {
-        // const nearestValidLink = links.indexOf("#") - 1;
-        // if (link)
-        if (pageIsValid()) {
-            const page = links[link];
-        }
-    };
-
     const pageIsValid = () => formRef.current?.checkValidity();
     const formIsValid = () => !validPages.includes(false);
-    // console.log("yes");
 
     useEffect(() => {
         console.log(validPages);
     });
+
+    if (useLocation().pathname == '/')
+        navigate('/1');
 
     useEffect(() => {
         // if (!submitted) return;
@@ -82,30 +61,20 @@ function App() {
     //     setPageValidity();
     // }, [currentPage]);
 
+    useEffect(() => {
+        if (!formIsValid())
+            console.log("messup");
+    }, [currentPage]);
+
     const handleSubmit = (event) => {
         if (event) event.preventDefault();
-        // console.log(formRef.current);
-
-        // console.log(formRef.current.checkValidity());
-
-        // console.log(formRef.current.elements);
-
-        // formRef.current.elements.forEach(element => {
-        //     console.log(element.valid);
-        // });
 
         if (currentPage !== 4) {
-            // if (pageIsValid()) {
-            //     // validPages[currentPage] = true;
-            //     setPageValidity();
-            //     navigate(`/${currentPage + 1}`);
-            // } else {
-            //     setSubmitted(true);
-            // }
             setPageValidity();
             navigate(`/${currentPage + 1}`);
         } else {
             console.log(formData);
+
             fetch("/api/submit", {
                 method: "POST",
                 body: JSON.stringify(formData),
@@ -116,8 +85,6 @@ function App() {
                 if (res.ok) navigate("confirmation-page");
             });
         }
-
-        // console.log("submitted");
     };
 
     useEffect(() => {
