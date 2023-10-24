@@ -62,3 +62,24 @@
     font-size: 1em;
     font-weight: 500;
 }
+
+.page2 .error2 {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 4px;
+  }
+
+@media screen and (min-width: 1000px) {
+    .page2 fieldset.plan {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .page2 fieldset.plan label {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 40px;
+    }
+
+}

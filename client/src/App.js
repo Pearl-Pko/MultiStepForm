@@ -133,61 +133,83 @@ function App() {
 
             <ul className="links">
                 <li>
-                    <Link to="/1" className={linkClass(1)}>
-                        1
+                    <Link to="/1">
+                        <p className={linkClass(1)}>1</p>
+                        <div className="steps">
+                            <p>STEP 1</p>
+                            <p>YOUR INFO</p>
+                        </div>
                     </Link>
                 </li>
+
                 <li>
-                    <Link to="/2" className={linkClass(2)}>
-                        2
+                    <Link to="/2">
+                        <p className={linkClass(2)}>2</p>
+                        <div className="steps">
+                            <p>STEP 2</p>
+                            <p>SELECT PLAN</p>
+                        </div>
                     </Link>
                 </li>
+
                 <li>
-                    <Link to="/3" className={linkClass(3)}>
-                        3
+                    <Link to="/3">
+                        <p className={linkClass(3)}>3</p>
+                        <div className="steps">
+                            <p>STEP 3</p>
+                            <p>ADD-ONS</p>
+                        </div>
                     </Link>
                 </li>
+
                 <li>
-                    <Link to="/4" className={linkClass(4)}>
-                        4
+                    <Link to="/4">
+                        <p className={linkClass(4)}>4</p>
+                        <div className="steps">
+                            <p>STEP 4</p>
+                            <p>SUMMARY</p>
+                        </div>
                     </Link>
                 </li>
+
             </ul>
 
-            <form id="form" onSubmit={handleSubmit} noValidate ref={formRef}>
-                <Outlet context={{plans, addons, errorMessage, formIsValid}} />
-            </form>
-
-            <div className="buttons">
-                {currentPage > 1 && (
-                    <button
-                        onClick={() => navigate(`/${currentPage - 1}`)}
-                        className="left-button"
-                    >
-                        Go Back
-                    </button>
-                )}
-                {currentPage < 4 && (
-                    <button
-                        // onClick={() => navigate(`/${currentPage + 1}`)}
-                        className="right-button"
-                        type="submit"
-                        form="form"
-                        disabled={!pageIsValid()}
-                    >
-                        Next Step
-                    </button>
-                )}
-                {currentPage === 4 && (
-                    <button
-                        className="right-button"
-                        type="submit"
-                        form="form"
-                        disabled={!formIsValid()}
-                    >
-                        Confirm
-                    </button>
-                )}
+            <div>
+                <form id="form" onSubmit={handleSubmit} noValidate ref={formRef}>
+                    <Outlet context={{plans, addons, errorMessage, formIsValid}} />
+                </form>
+                
+                <div className="buttons">
+                    {currentPage > 1 && (
+                        <button
+                            onClick={() => navigate(`/${currentPage - 1}`)}
+                            className="left-button"
+                        >
+                            Go Back
+                        </button>
+                    )}
+                    {currentPage < 4 && (
+                        <button
+                            // onClick={() => navigate(`/${currentPage + 1}`)}
+                            className="right-button"
+                            type="submit"
+                            form="form"
+                            disabled={!pageIsValid()}
+                        >
+                            Next Step
+                        </button>
+                    )}
+                    {currentPage === 4 && (
+                        <button
+                            className="right-button"
+                            type="submit"
+                            form="form"
+                            disabled={!formIsValid()}
+                        >
+                            Confirm
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
     );

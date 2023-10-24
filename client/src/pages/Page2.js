@@ -4,9 +4,8 @@ import {useFormContext} from "../FormContext";
 // import arcade from "../public/images/icon-arcade.svg";
 import Switch from "../Components/Switch";
 import './Page2.css'
-import ErrorMessage from "../ErrorMessage";
 
-export function Page2(props) {
+export function Page2() {
     const [formData, updateFormData] = useFormContext();
     const [duration, setDuration] = useState(
         formData.duration === "yearly" ? true : false
@@ -76,9 +75,8 @@ export function Page2(props) {
                         </>
                     );
                 })}
-                <ErrorMessage message={data.errorMessage["plan"] && "Select one of the above"}/>
-
             </fieldset>
+            {data.errorMessage["plan"] && <p className="error2">Select one of the above</p>}
 
             <fieldset className="duration">
                 <label className={`period ${formData.duration === "monthly" ? "main-text-color" : "sub-text-color"}`}>Monthly</label>
