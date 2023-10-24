@@ -8,7 +8,6 @@ function App() {
     const currentPage = parseInt(useLocation().pathname[1]);
     const navigate = useNavigate();
     const [formData, updateFormData] = useFormContext();
-    const [links, setLinks] = useState(["#", "#", "#", "#"]);
     const [addons, setAddons] = useState([]);
     const [plans, setPlans] = useState([]);
     const [errorMessage, setErrorMessage] = useState({});
@@ -28,35 +27,15 @@ function App() {
         setValidPages(pages);
     };
 
-    const shouldLink = (link) => {
-        // we would allow links to previous pages
-        // if the user wants to link to the next page, then the current page has to be valid
-        if (link > currentPage) {
-            if (link === currentPage + 1 && pageIsValid()) {
-                setPageValidity();
-                console.log("rerender");
-                return `/${link}`;
-            }
-            return "#";
-        }
-        return `/${link}`;
-    };
-
-    const updateLink = (link) => {
-        // const nearestValidLink = links.indexOf("#") - 1;
-        // if (link)
-        if (pageIsValid()) {
-            const page = links[link];
-        }
-    };
-
     const pageIsValid = () => formRef.current?.checkValidity();
     const formIsValid = () => !validPages.includes(false);
-    // console.log("yes");
 
     useEffect(() => {
         console.log(validPages);
     });
+
+    if (useLocation().pathname == '/')
+        navigate('/1');
 
     useEffect(() => {
         // if (!submitted) return;
@@ -82,30 +61,20 @@ function App() {
     //     setPageValidity();
     // }, [currentPage]);
 
+    useEffect(() => {
+        if (!formIsValid())
+            console.log("messup");
+    }, [currentPage]);
+
     const handleSubmit = (event) => {
         if (event) event.preventDefault();
-        // console.log(formRef.current);
-
-        // console.log(formRef.current.checkValidity());
-
-        // console.log(formRef.current.elements);
-
-        // formRef.current.elements.forEach(element => {
-        //     console.log(element.valid);
-        // });
 
         if (currentPage !== 4) {
-            // if (pageIsValid()) {
-            //     // validPages[currentPage] = true;
-            //     setPageValidity();
-            //     navigate(`/${currentPage + 1}`);
-            // } else {
-            //     setSubmitted(true);
-            // }
             setPageValidity();
             navigate(`/${currentPage + 1}`);
         } else {
             console.log(formData);
+
             fetch("/api/submit", {
                 method: "POST",
                 body: JSON.stringify(formData),
@@ -116,8 +85,6 @@ function App() {
                 if (res.ok) navigate("confirmation-page");
             });
         }
-
-        // console.log("submitted");
     };
 
     useEffect(() => {
@@ -166,61 +133,83 @@ function App() {
 
             <ul className="links">
                 <li>
-                    <Link to="/1" className={linkClass(1)}>
-                        1
+                    <Link to="/1">
+                        <p className={linkClass(1)}>1</p>
+                        <div className="steps">
+                            <p>STEP 1</p>
+                            <p>YOUR INFO</p>
+                        </div>
                     </Link>
                 </li>
+
                 <li>
-                    <Link to="/2" className={linkClass(2)}>
-                        2
+                    <Link to="/2">
+                        <p className={linkClass(2)}>2</p>
+                        <div className="steps">
+                            <p>STEP 2</p>
+                            <p>SELECT PLAN</p>
+                        </div>
                     </Link>
                 </li>
+
                 <li>
-                    <Link to="/3" className={linkClass(3)}>
-                        3
+                    <Link to="/3">
+                        <p className={linkClass(3)}>3</p>
+                        <div className="steps">
+                            <p>STEP 3</p>
+                            <p>ADD-ONS</p>
+                        </div>
                     </Link>
                 </li>
+
                 <li>
-                    <Link to="/4" className={linkClass(4)}>
-                        4
+                    <Link to="/4">
+                        <p className={linkClass(4)}>4</p>
+                        <div className="steps">
+                            <p>STEP 4</p>
+                            <p>SUMMARY</p>
+                        </div>
                     </Link>
                 </li>
+
             </ul>
 
-            <form id="form" onSubmit={handleSubmit} noValidate ref={formRef}>
-                <Outlet context={{plans, addons, errorMessage, formIsValid}} />
-            </form>
-
-            <div className="buttons">
-                {currentPage > 1 && (
-                    <button
-                        onClick={() => navigate(`/${currentPage - 1}`)}
-                        className="left-button"
-                    >
-                        Go Back
-                    </button>
-                )}
-                {currentPage < 4 && (
-                    <button
-                        // onClick={() => navigate(`/${currentPage + 1}`)}
-                        className="right-button"
-                        type="submit"
-                        form="form"
-                        disabled={!pageIsValid()}
-                    >
-                        Next Step
-                    </button>
-                )}
-                {currentPage === 4 && (
-                    <button
-                        className="right-button"
-                        type="submit"
-                        form="form"
-                        disabled={!formIsValid()}
-                    >
-                        Confirm
-                    </button>
-                )}
+            <div>
+                <form id="form" onSubmit={handleSubmit} noValidate ref={formRef}>
+                    <Outlet context={{plans, addons, errorMessage, formIsValid}} />
+                </form>
+                
+                <div className="buttons">
+                    {currentPage > 1 && (
+                        <button
+                            onClick={() => navigate(`/${currentPage - 1}`)}
+                            className="left-button"
+                        >
+                            Go Back
+                        </button>
+                    )}
+                    {currentPage < 4 && (
+                        <button
+                            // onClick={() => navigate(`/${currentPage + 1}`)}
+                            className="right-button"
+                            type="submit"
+                            form="form"
+                            disabled={!pageIsValid()}
+                        >
+                            Next Step
+                        </button>
+                    )}
+                    {currentPage === 4 && (
+                        <button
+                            className="right-button"
+                            type="submit"
+                            form="form"
+                            disabled={!formIsValid()}
+                        >
+                            Confirm
+                        </button>
+                    )}
+                </div>
             </div>
         </div>
     );

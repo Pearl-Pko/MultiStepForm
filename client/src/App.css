@@ -5,6 +5,9 @@
 } */
 
 body {
+
+    /* background-color: var(--background-color); */
+
     /* background-image: url('../public/images/bg-sidebar-mobile.svg');
     background-repeat: no-repeat;
     background-position: top;
@@ -28,6 +31,8 @@ body {
     background-size: contain;
 }
 
+
+
 .links {
     display: flex;
     justify-content: center;
@@ -41,10 +46,12 @@ body {
 }
 
 .links li a {
-    line-height: 1;
     text-decoration: none;
-    color: black;
-    border: 2px solid var(--background-color);
+}
+
+.links li a > p {
+    color: var(--background-color);
+    border: 1.6px solid var(--background-color);
     border-radius: 50%;
     padding: 10px 15px;
     /* padding: 6px 10px; */
@@ -52,11 +59,11 @@ body {
 }
 
 .highlight-link {
-    background-color: var(--background-color);
+    background-color: var(--hightlight-color);
 }
 
 .disabled-link {
-    opacity: 0.4;
+    /* opacity: 0.4; */
 }
 
 form {
@@ -66,12 +73,13 @@ form {
     margin-left: 20px;
     margin-right: 20px;
     border-radius: 20px;
+    min-height: 300px;
 }
 
 .buttons {
     margin-top: 80px;
     background-color: white;
-    padding: 15px 20px;
+    padding: 0px 20px;
     float: none;
 }
 
@@ -107,4 +115,102 @@ form {
 
 .page .right-button {
     float: right;
+}
+
+.page .steps {
+    display: none;
+}
+
+@media screen and (min-width: 1000px) {
+    body {
+        display: grid;
+        background-color: var(--background-color);
+        place-items: center;
+        min-height: 100vh;
+    }
+
+    .page {
+        display: grid;
+        width: 900px;
+        max-width: 900px;
+        background-color: white;
+        grid-template-columns: 1.15fr 3fr;
+        /* background: none; */
+        background-image: none;
+        padding: 15px;
+        height: 530px;
+        overflow: hidden;
+    }
+
+    .page .links {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        align-items: flex-start;
+        margin: 0;
+        padding: 34px 20px;
+        justify-content: start;
+        background-image: url('../public/images/bg-sidebar-desktop.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        /* background-color: green; */
+        width: 100%;
+    }
+
+    .page > div {
+        /* background-color: purple; */
+        padding: 40px 80px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .page > div .buttons {
+        /* display: block;
+        position: absolute;
+        bottom: 0; */
+    }
+/* 
+    .page > div form  {
+        margin: 0;
+        max-width: 600px;
+    } */
+
+    .page form {
+        margin: 0;
+        padding: 0;
+    }
+
+    .page > div .buttons {
+        margin: 0;
+        padding: 0;
+    }
+
+    .page .steps {
+        display: block;
+    }
+
+    .links {
+        gap: 5px;
+    }
+    
+    .links li a {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+    }
+
+    .links li a > p {
+        padding: 5px 12px;
+    }
+
+    .links li div p:first-child {
+        color: var(--sub-text-color);
+    }
+
+    .links li div p:last-child {
+        color: var(--background-color);
+        font-weight: bold;
+    }
 }
