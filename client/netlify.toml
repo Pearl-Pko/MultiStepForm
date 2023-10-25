@@ -2,7 +2,6 @@
     from = "/api/submit"
     to = "https://multistepform-frontendmasters.onrender.com/api/submit"
     force = true
-    status = 200
     conditions = {Method = "POST"}
 
 [[redirects]]
