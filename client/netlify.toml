@@ -2,7 +2,6 @@
     from = "/api/submit"
     to = "https://multistepform-frontendmasters.onrender.com/api/submit"
     force = true
-    conditions = {Method = "POST"}
     headers = {X-From = "Netlify"}
 
 [[headers]]
