@@ -2,6 +2,7 @@
     from = "/api/*"
     to = "https://multistepform-frontendmasters.onrender.com/api/:splat"
     force = true
+    status = 200
     conditions = {Method = "POST"}
 
 [[redirects]]
