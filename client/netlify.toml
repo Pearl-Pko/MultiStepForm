@@ -3,6 +3,7 @@
     to = "https://multistepform-frontendmasters.onrender.com/api/submit"
     force = true
     conditions = {Method = "POST"}
+    headers = {Access-Control-Allow-Origin = "*", Access-Control-Allow-Methods = "POST"}
 
 [[redirects]]
     from = "/api/*"
